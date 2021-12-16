@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html style="font-family: sans-serif;">
+<head>
+	<title> Unit Conversion Utility </title>
+</head>
+<body>
+	<center>
+		<h2>Unit Conversion Utility</h2>
+		<br>
+		<select id="unitOfChoice">
+			<option name="kilogram_to_pound">kg - lb</option>
+			<option name="kilogram_to_stone">kg - st</option>
+			<option name="meter_to_yard">m - yard</option>
+			<option name="centimeter_to_inch">cm - in</option>
+			<option name="meter_to_feet">m - ft</option>
+			<option name="usd_to_gbp">USD - GBP</option>
+			<option name="celsius_to_farenheit">c - f</option>
+		</select>
+		
+		<input placeholder="Insert Metric Unit" type="number" id="metric">
+		<p id="imperialUnit">0</p>
+		<button onclick="convertUnit()" id="convert" style="border-width:0px;background-color:red;color:white;font-size:150%; border-radius:35%;">Convert</button>
+		
+		<script>
+			const unitOfChoice = document.getElementById("unitOfChoice");
+			const metric = document.getElementById("metric");
+			const imperialUnit = document.getElementById("imperialUnit");
+			const convert = document.getElementById("convert");
+			
+			var convertedMeasure = 0;
+
+			function convertUnit() {
+				if(unitOfChoice.value == "kg - lb") {
+					convertedMeasure = metric.value * 2.20462262;
+					console.log(convertedMeasure);
+				}else if(unitOfChoice.value == "kg - st") {
+					convertedMeasure = metric.value / 6.35029317;
+					console.log(convertedMeasure);
+				}else if(unitOfChoice.value == "m - yard") {
+					convertedMeasure = metric.value * 1.0936133;
+					console.log(convertedMeasure);
+				}else if(unitOfChoice.value == "cm - in") {
+					convertedMeasure = metric.value / 2.54;
+					console.log(convertedMeasure);
+				}else if(unitOfChoice.value == "m - ft") {
+					convertedMeasure = metric.value * 3.2808399;
+					console.log(convertedMeasure);
+				}else if(unitOfChoice.value == "USD - GBP") {
+					convertedMeasure = metric.value * 0.75;
+					console.log(convertedMeasure);
+				}else if(unitOfChoice.value == "c - f") {
+					convertedMeasure = (metric.value * 1.8) + 32;
+					console.log(convertedMeasure);
+				}
+				
+				imperialUnit.innerHTML = convertedMeasure;
+			}
+
+		</script>
+</body>
+</html>
